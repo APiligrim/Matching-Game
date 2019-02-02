@@ -1,0 +1,36 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/**,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.scores-section{
+	float: right;
+
+}
+
+.redo {
+	float: right;
+	/*cursor: pointer;*/
+
+}
+
+.moves, .redo, .stars, li{
+	display: inline-block;
+	list-style:  none;
+}
