@@ -1,3 +1,7 @@
+html {
+    box-sizing: border-box;
+}
+
 html,
 body {
     width: 100%;
@@ -6,12 +10,20 @@ body {
     padding: 0;
 }
 
-/**,
+**,
 *::before,
 *::after {
     box-sizing: inherit;
 }
-*/
+
+body{
+/*	background: #ffffff url('../images/1.jpeg') ;*/
+	background:  #2a0845 ;
+	font-family: Coda;
+	font-size: 20px;
+	color: #ffffff;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -19,18 +31,86 @@ body {
     flex-direction: column;
 }
 
-.scores-section{
-	float: right;
-
+h1 {
+	/*font-family: Open Sans*/
+	font-weight: 300;
 }
 
-.redo {
-	float: right;
-	/*cursor: pointer;*/
+/*Deck of Cards Style*/
 
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
 }
 
-.moves, .redo, .stars, li{
+
+.cards {
+	width: 600px;
+	min-height: 680px;
+
+/*The CSS padding properties are used to generate space around an element's 
+content, inside of any defined borders.
+With CSS, you have full control over the padding. There are properties for
+setting the padding for each side of an element (top, right, bottom, and left).*/
+
+	padding: 32px;
+	border-radius: 10px;
+	background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+	box-shadow: 12px 15px 20px 0 rgba(255,255,255, 0.3);
+	display: flex;
+
+/*flex-wrap: wrap; It defines whether the flex items are forced in a single line or can be flowed into multiple lines*/
+
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 0 3em;
+    justify-content: space-between;
+}
+
+.cards .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+/*Scores Tracking*/
+
+.score-section {
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+}
+
+.score-section .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.moves, .redo, .stars,  li{
 	display: inline-block;
 	list-style:  none;
+}
+
+.score-section .redo {
+    float: rightf;
+    cursor: pointer;
 }
