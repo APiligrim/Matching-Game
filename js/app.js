@@ -2,9 +2,7 @@
  * Create a list that holds all of your cards
  */
 
- // var x = cards.length; //The length property returns the number of elements 
- // docunment.getElementById("cards").innerHTML = cards [0];
-
+var CardSymbols = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube",  "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube",  "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
 /*
  * Display the cards on the page
@@ -13,8 +11,15 @@
  *   - add each card's HTML to the page
  */
 
+CardSymbols.forEach(function(item) {
+  var li = document.createElement("li");
+  var text = document.createTextNode(item);
+  li.appendChild(text);
+  document.getElementById("myUL").appendChild(li);
+});
+
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
+function shuffle(CardSymbols) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
@@ -24,9 +29,21 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
- 
-    return array;
+
+    return CardSymbols;
 }
+
+//link the deck to the click event
+$('.deck').on('click', '.card', handler)
+
+function handler(event) {
+  $(this).toggleClass('open show');
+};
+
+
+
+
+
 
 
 /*
@@ -41,7 +58,21 @@ function shuffle(array) {
  */
 
 // Event listener for a card
+var card = document.getElementsByClassName('card');
 
-docunment.querySelector('card').addEventListener('click' ()=> {
-	console.log('Card was pressed');
-})
+for (var i=0; i < card.length; i++) {
+    card[i].addEventListener('click', function () {
+
+    // card.classList.toggle(".show");
+    
+
+console.log('The card was clicked!');
+    })
+}
+
+//add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+//Step 1 : store the list of classes in a variable (lesson 3 (5))
+const listOfOpenCards = card.className;
+
+//logs out the string 
+console.log(listOfOpenCards);

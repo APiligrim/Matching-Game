@@ -2,6 +2,12 @@ html {
     box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 html,
 body {
     width: 100%;
@@ -10,18 +16,9 @@ body {
     padding: 0;
 }
 
-**,
-*::before,
-*::after {
-    box-sizing: inherit;
-}
-
-body{
-/*	background: #ffffff url('../images/1.jpeg') ;*/
-	background:  #2a0845 ;
-	font-family: Coda;
-	font-size: 20px;
-	color: #ffffff;
+body {
+    background: #ffffff url('../images/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
 }
 
 .container {
@@ -32,11 +29,13 @@ body{
 }
 
 h1 {
-	/*font-family: Open Sans*/
-	font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
 }
 
-/*Deck of Cards Style*/
+/*
+ * Styles for the deck of cards
+ */
 
 .deck {
     width: 660px;
@@ -50,33 +49,13 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin: 0 0 3em;
+
+    /* CSS animation to rotate the card */
+    transition: rotateY(0deg);
+    transition: 1s ease; 
 }
 
-
-.cards {
-	width: 600px;
-	min-height: 680px;
-
-/*The CSS padding properties are used to generate space around an element's 
-content, inside of any defined borders.
-With CSS, you have full control over the padding. There are properties for
-setting the padding for each side of an element (top, right, bottom, and left).*/
-
-	padding: 32px;
-	border-radius: 10px;
-	background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-	box-shadow: 12px 15px 20px 0 rgba(255,255,255, 0.3);
-	display: flex;
-
-/*flex-wrap: wrap; It defines whether the flex items are forced in a single line or can be flowed into multiple lines*/
-
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 0 0 3em;
-    justify-content: space-between;
-}
-
-.cards .card {
+.deck .card {
     height: 125px;
     width: 125px;
     background: #2e3d49;
@@ -88,29 +67,54 @@ setting the padding for each side of an element (top, right, bottom, and left).*
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+/*    transform-style: preserve-3d;
+        transition: 0.6s;*/
 }
 
-/*Scores Tracking*/
+.deck .card.open {
+    transform: rotateY(180deg);
+    background: #02b3e4;
+    cursor: default;
 
-.score-section {
+/* cards rotating from default*/
+    transform: rotateY(180deg);
+    transition: 1s ease;
+}
+
+.deck .card.show {
+    font-size: 33px;
+    position: relative;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
 }
 
-.score-section .stars {
+.score-panel .stars {
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
 }
 
-.moves, .redo, .stars,  li{
-	display: inline-block;
-	list-style:  none;
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
 }
 
-.score-section .redo {
-    float: rightf;
+.score-panel .restart {
+    float: right;
     cursor: pointer;
 }
